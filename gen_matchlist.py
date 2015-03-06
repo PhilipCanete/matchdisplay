@@ -33,7 +33,8 @@ data = sorted(data, key=lambda d: d['num'])
 if len(data) == 0:
 	sys.exit('No matches received')
 
-env = Environment(loader=FileSystemLoader('assets'))
+env = Environment(loader=FileSystemLoader('assets'), trim_blocks=True,
+		lstrip_blocks=True)
 template = env.get_template('base.html')
 
 with open(os.path.join('output', '{}_{}.html').format(sys.argv[1], sys.argv[2]), 'wb') as f:
