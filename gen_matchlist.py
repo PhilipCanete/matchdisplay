@@ -8,13 +8,16 @@ import requests
 URL = 'http://www.thebluealliance.com/api/v2/event/{}/matches'
 HEADERS = {'X-TBA-App-Id': 'frc295:matchdisplay:v01'}
 
-if len(sys.argv) is not 3:
+if len(sys.argv) != 3:
 	print('Usage: python get_tba_schedule.py <eventcode> <team>')
 	print('Example: python gen_matchlist.py 2014cama 295')
 	sys.exit()
 
 req = requests.get(URL.format(sys.argv[1]), headers=HEADERS)
 matches = req.json()
+
+if isinstance(matches, dict) and matches['404']:
+	sys.exit('404: {}'.format(matches['404']))
 
 data = []
 for m in matches:
@@ -26,6 +29,9 @@ for m in matches:
 data = filter(lambda d: int(sys.argv[2]) in d['red']
 		or int(sys.argv[2]) in d['blue'], data)
 data = sorted(data, key=lambda d: d['num'])
+
+if len(data) == 0:
+	sys.exit('No matches received')
 
 env = Environment(loader=FileSystemLoader('assets'))
 template = env.get_template('base.html')
