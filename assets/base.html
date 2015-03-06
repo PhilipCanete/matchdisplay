@@ -5,10 +5,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Team {{ ourteam }} @ {{ event }}</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="assets/style.css">
+	<link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
-	<img class="bg" src="assets/bg.jpg">
+	<img class="bg" src="../assets/bg.jpg">
 	<div class="matchespane">
 		<table class="matchestable">
 			<tr class="matchestable__header">
@@ -29,7 +29,7 @@
 			{% endfor %}
 		</table>
 	</div>
-	<script src="assets/jquery.js"></script>
+	<script src="../assets/jquery.js"></script>
 	<script>
 	$('.matchestable__match').each(function(index) {
 		$(this).on('click', function() {

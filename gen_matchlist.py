@@ -1,4 +1,5 @@
 import csv
+import os
 import sys
 
 from jinja2 import Environment, FileSystemLoader
@@ -29,6 +30,6 @@ data = sorted(data, key=lambda d: d['num'])
 env = Environment(loader=FileSystemLoader('assets'))
 template = env.get_template('base.html')
 
-with open('{}_{}.html'.format(sys.argv[1], sys.argv[2]), 'wb') as f:
+with open(os.path.join('output', '{}_{}.html').format(sys.argv[1], sys.argv[2]), 'wb') as f:
 	f.write(template.render(matches=data, event=sys.argv[1], ourteam=int(sys.argv[2])))
 
