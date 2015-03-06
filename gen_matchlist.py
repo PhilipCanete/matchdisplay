@@ -85,6 +85,8 @@ def main():
 		data = get_from_tba(event)
 	elif sys.argv[1] == 'csv':
 		data = get_from_csv(event)
+		# Get bare filename (no path, no file extension)
+		event = ''.join(event.split(os.path.sep)[-1].split('.')[:-1])
 	else:
 		sys.exit(USAGE_STRING)
 
@@ -99,8 +101,6 @@ def main():
 			lstrip_blocks=True)
 	template = env.get_template('base.html')
 
-	# Get bare filename (no path, no file extension)
-	event = ''.join(event.split(os.path.sep)[-1].split('.')[:-1])
 
 	# Render template to file
 	with open(os.path.join('output', '{}_{}.html').format(event, ourteam), 'wb') as f:
