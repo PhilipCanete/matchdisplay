@@ -3,7 +3,7 @@ import sys
 
 from jinja2 import Environment, FileSystemLoader
 
-USAGE_STRING = '''Usage: python gen_matchlist.py [csv <filename> | tba <eventcode>] <team>
+USAGE_STRING = '''Usage: python gen_matchlist.py [csv <filename> | tba <eventkey>] <team>
 Example: python gen_matchlist.py csv compschedule.csv 295
 Example: python gen_matchlist.py tba 2013cama 295'''
 
