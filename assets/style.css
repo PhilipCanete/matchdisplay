@@ -1,0 +1,50 @@
+html {
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+.bg {
+	left: -25vw;
+	top: -25vh;
+	width: 150vw;
+	position: fixed;
+	z-index: -1;
+	-webkit-filter: blur(30px);
+	        filter: blur(30px);
+}
+
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	font-family: Open Sans, Arial, sans-serif;
+	font-size: 20px;
+	color: #556;
+}
+
+.matchespane {
+	display: block;
+	position: relative;
+	padding: 30px;
+	background-color: white;
+	border-radius: 10px;
+	box-shadow: 0 0 80px rgba(0, 0, 0, 0.25);
+}
+
+.matchestable {text-align: center;}
+
+.header--match, .header--alliance,
+.matchnum, .teamnum {
+	padding: 10px 20px;
+}
+
+.matchestable__match.collapsed {display: none;}
+
+.alliance--red {color: #ff465a;}
+.alliance--blue {color: #3c5ac8;}
+
+.ourteam {
+	font-size: 24px;
+	font-weight: 800;
+}

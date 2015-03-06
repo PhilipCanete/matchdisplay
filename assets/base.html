@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Team {{ ourteam }} @ {{ event }}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+	<img class="bg" src="assets/bg.jpg">
+	<div class="matchespane">
+		<table class="matchestable">
+			<tr class="matchestable__header">
+				<td class="header--match">Match</td>
+				<td class="header--alliance" colspan="3">Red Alliance</td>
+				<td class="header--alliance" colspan="3">Blue Alliance</td>
+			</tr>
+			{% for m in matches %}
+			<tr class="matchestable__match">
+				<td class="matchnum">{{ m.num }}</td>
+				{% for t in m.red %}
+				<td class="teamnum alliance--red {% if t == ourteam %}ourteam{% endif %}">{{ t }}</td>
+				{% endfor %}
+				{% for t in m.blue %}
+				<td class="teamnum alliance--blue {% if t == ourteam %}ourteam{% endif %}">{{ t }}</td>
+				{% endfor %}
+			</tr>
+			{% endfor %}
+		</table>
+	</div>
+	<script src="assets/jquery.js"></script>
+	<script>
+	$('.matchestable__match').each(function(index) {
+		$(this).on('click', function() {
+			$(this).addClass('collapsed');
+		});
+	});
+	</script>
+</body>
+</html>
