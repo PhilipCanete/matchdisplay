@@ -8,7 +8,7 @@ Also includes a script to generate a schedule `.csv` file from The Blue Alliance
 
 ## Requirements
 
-- Python (testes with Python 2.7)
+- Python (tested with Python 2.7)
 - pip packages (install using `pip install -r requirements.txt`)
 	- requests
 	- Jinja2
