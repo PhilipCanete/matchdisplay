@@ -20,10 +20,10 @@
 			<tr class="matchestable__match">
 				<td class="matchnum">{{ m.num }}</td>
 				{% for t in m.red %}
-				<td class="teamnum alliance--red {% if t == ourteam %}ourteam{% endif %}">{{ t }}</td>
+				<td><div class="teamnum alliance--red {% if t == ourteam %}ourteam{% endif %}">{{ t }}</div></td>
 				{% endfor %}
 				{% for t in m.blue %}
-				<td class="teamnum alliance--blue {% if t == ourteam %}ourteam{% endif %}">{{ t }}</td>
+				<td><div class="teamnum alliance--blue {% if t == ourteam %}ourteam{% endif %}">{{ t }}</div></td>
 				{% endfor %}
 			</tr>
 			{% endfor %}
@@ -33,7 +33,14 @@
 	<script>
 	$('.matchestable__match').each(function(index) {
 		$(this).on('click', function() {
+			var $row = $(this);
 			$(this).addClass('collapsed');
+			$(this).children('td')
+				.wrapInner('<div class="collapsed__slider" />')
+				.children('.collapsed__slider')
+				.slideUp({
+					complete: function() {$($row).remove();}
+				});
 		});
 	});
 	</script>

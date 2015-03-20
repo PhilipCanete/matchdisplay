@@ -39,7 +39,9 @@ body {
 	padding: 10px 20px;
 }
 
-.matchestable__match.collapsed {display: none;}
+.matchestable__match.collapsed td {
+	padding: 0;
+}
 
 .alliance--red {color: #ff465a;}
 .alliance--blue {color: #3c5ac8;}
