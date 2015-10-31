@@ -31,7 +31,7 @@ Also includes a script to generate a schedule `.csv` file from The Blue Alliance
 
 ## Output
 
-The main script, `gen_matchlist`, generates a webpage that contains a table of upcoming matches for a team. Clicking on a match row will remove it, so that elapsed matches can be hidden. To restore them, refresh the page.
+The main script, `gen_matchlist`, generates a webpage that contains a table of upcoming matches for a team. Clicking on a match row will remove it, so elapsed matches can be hidden. To restore them, refresh the page.
 
-Note: The webpage is only tested on Google Chrome, but may work on other browsers.
+Note: The webpage is only tested on Google Chrome, but may work on other browsers. 
 
